@@ -1,9 +1,3 @@
-/*
- * HomePage
- *
- * This is the first thing users see of our App, at the '/' route
- */
-
 import React, { useEffect, memo } from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
@@ -15,45 +9,44 @@ import { createStructuredSelector } from 'reselect';
 import { useInjectReducer } from 'utils/injectReducer';
 import { useInjectSaga } from 'utils/injectSaga';
 import {
-  makeSelectRepos,
+  makeSelectAnswer,
   makeSelectLoading,
   makeSelectError,
-} from 'containers/App/selectors';
-import ReposList from 'components/ReposList';
+} from '../App/selectors';
+import AnswerList from '../../components/AnswerList';
 import AtPrefix from './AtPrefix';
-import CenteredSection from './CenteredSection';
 import Form from './Form';
+import CenteredSection from './CenteredSection';
 import Input from './Input';
 import Section from './Section';
 import messages from './messages';
-import { loadRepos } from '../App/actions';
-import { changeUsername } from './actions';
-import { makeSelectUsername } from './selectors';
+import { loadAnswers } from '../App/actions';
+import { changeQuestion } from './actions';
+import { makeSelectQuestion } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 
 const key = 'home';
 
 export function HomePage({
-  username,
+  question,
   loading,
   error,
-  repos,
+  answers,
   onSubmitForm,
-  onChangeUsername,
+  onChangeQuestion,
 }) {
   useInjectReducer({ key, reducer });
   useInjectSaga({ key, saga });
 
   useEffect(() => {
-    // When initial state username is not null, submit the form to load repos
-    if (username && username.trim().length > 0) onSubmitForm();
+    if (question && question.trim().length > 0) onSubmitForm();
   }, []);
 
-  const reposListProps = {
+  const answerListProps = {
     loading,
     error,
-    repos,
+    answers,
   };
 
   return (
@@ -65,28 +58,24 @@ export function HomePage({
       <div>
         <CenteredSection>
           <FormattedMessage {...messages.startProjectHeader} />
-          <p>
-            <FormattedMessage {...messages.startProjectMessage} />
-          </p>
         </CenteredSection>
         <Section>
-          <FormattedMessage {...messages.trymeHeader} />
           <Form onSubmit={onSubmitForm}>
-            <label htmlFor="username">
+            <label htmlFor="question">
               <FormattedMessage {...messages.trymeMessage} />
               <AtPrefix>
                 <FormattedMessage {...messages.trymeAtPrefix} />
               </AtPrefix>
               <Input
-                id="username"
+                id="question"
                 type="text"
-                placeholder="ken88ling"
-                value={username}
-                onChange={onChangeUsername}
+                placeholder="php"
+                value={question}
+                onChange={onChangeQuestion}
               />
             </label>
           </Form>
-          <ReposList {...reposListProps} />
+          <AnswerList {...answerListProps} />
         </Section>
       </div>
     </article>
@@ -96,25 +85,25 @@ export function HomePage({
 HomePage.propTypes = {
   loading: PropTypes.bool,
   error: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
-  repos: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
+  answers: PropTypes.any,
   onSubmitForm: PropTypes.func,
-  username: PropTypes.string,
-  onChangeUsername: PropTypes.func,
+  question: PropTypes.string,
+  onChangeQuestion: PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
-  repos: makeSelectRepos(),
-  username: makeSelectUsername(),
+  answers: makeSelectAnswer(),
+  question: makeSelectQuestion(),
   loading: makeSelectLoading(),
   error: makeSelectError(),
 });
 
 export function mapDispatchToProps(dispatch) {
   return {
-    onChangeUsername: evt => dispatch(changeUsername(evt.target.value)),
+    onChangeQuestion: evt => dispatch(changeQuestion(evt.target.value)),
     onSubmitForm: evt => {
       if (evt !== undefined && evt.preventDefault) evt.preventDefault();
-      dispatch(loadRepos());
+      dispatch(loadAnswers());
     },
   };
 }

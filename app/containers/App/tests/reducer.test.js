@@ -1,7 +1,7 @@
 import produce from 'immer';
 
 import appReducer from '../reducer';
-import { loadRepos, reposLoaded, repoLoadingError } from '../actions';
+import { loadAnswers, answerLoaded, answerLoadingError } from '../actions';
 
 /* eslint-disable default-case, no-param-reassign */
 describe('appReducer', () => {
@@ -29,7 +29,7 @@ describe('appReducer', () => {
       draft.userData.repositories = false;
     });
 
-    expect(appReducer(state, loadRepos())).toEqual(expectedResult);
+    expect(appReducer(state, loadAnswers())).toEqual(expectedResult);
   });
 
   it('should handle the reposLoaded action correctly', () => {
@@ -45,7 +45,7 @@ describe('appReducer', () => {
       draft.currentUser = username;
     });
 
-    expect(appReducer(state, reposLoaded(fixture, username))).toEqual(
+    expect(appReducer(state, answerLoaded(fixture, username))).toEqual(
       expectedResult,
     );
   });
@@ -59,7 +59,7 @@ describe('appReducer', () => {
       draft.loading = false;
     });
 
-    expect(appReducer(state, repoLoadingError(fixture))).toEqual(
+    expect(appReducer(state, answerLoadingError(fixture))).toEqual(
       expectedResult,
     );
   });

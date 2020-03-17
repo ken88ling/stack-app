@@ -1,7 +1,7 @@
 import produce from 'immer';
 
 import homeReducer from '../reducer';
-import { changeUsername } from '../actions';
+import { changeQuestion } from '../actions';
 
 /* eslint-disable default-case, no-param-reassign */
 describe('homeReducer', () => {
@@ -23,6 +23,6 @@ describe('homeReducer', () => {
       draft.username = fixture;
     });
 
-    expect(homeReducer(state, changeUsername(fixture))).toEqual(expectedResult);
+    expect(homeReducer(state, changeQuestion(fixture))).toEqual(expectedResult);
   });
 });

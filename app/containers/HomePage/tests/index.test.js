@@ -9,8 +9,8 @@ import { Provider } from 'react-redux';
 import { browserHistory } from 'react-router-dom';
 
 import { HomePage, mapDispatchToProps } from '../index';
-import { changeUsername } from '../actions';
-import { loadRepos } from '../../App/actions';
+import { changeQuestion } from '../actions';
+import { loadAnswers } from '../../App/actions';
 import configureStore from '../../../configureStore';
 
 describe('<HomePage />', () => {
@@ -90,7 +90,7 @@ describe('<HomePage />', () => {
         const result = mapDispatchToProps(dispatch);
         const username = 'mxstbr';
         result.onChangeUsername({ target: { value: username } });
-        expect(dispatch).toHaveBeenCalledWith(changeUsername(username));
+        expect(dispatch).toHaveBeenCalledWith(changeQuestion(username));
       });
     });
 
@@ -105,7 +105,7 @@ describe('<HomePage />', () => {
         const dispatch = jest.fn();
         const result = mapDispatchToProps(dispatch);
         result.onSubmitForm();
-        expect(dispatch).toHaveBeenCalledWith(loadRepos());
+        expect(dispatch).toHaveBeenCalledWith(loadAnswers());
       });
 
       it('should preventDefault if called with event', () => {

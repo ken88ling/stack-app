@@ -34,6 +34,7 @@ module.exports = {
     'import/no-unresolved': 2,
     'import/no-webpack-loader-syntax': 0,
     'import/prefer-default-export': 0,
+    "camelcase": [1, {"properties": "always"}],
     indent: [
       2,
       2,

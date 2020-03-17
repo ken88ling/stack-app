@@ -1,15 +1,19 @@
-import { LOAD_REPOS, LOAD_REPOS_SUCCESS, LOAD_REPOS_ERROR } from '../constants';
+import {
+  LOAD_ANSWER_ERROR,
+  LOAD_ANSWER_SUCCESS,
+  LOAD_ANSWER,
+} from '../constants';
 
-import { loadRepos, reposLoaded, repoLoadingError } from '../actions';
+import { loadAnswers, answerLoaded, answerLoadingError } from '../actions';
 
 describe('App Actions', () => {
   describe('loadRepos', () => {
     it('should return the correct type', () => {
       const expectedResult = {
-        type: LOAD_REPOS,
+        type: LOAD_ANSWER,
       };
 
-      expect(loadRepos()).toEqual(expectedResult);
+      expect(loadAnswers()).toEqual(expectedResult);
     });
   });
 
@@ -18,12 +22,12 @@ describe('App Actions', () => {
       const fixture = ['Test'];
       const username = 'test';
       const expectedResult = {
-        type: LOAD_REPOS_SUCCESS,
+        type: LOAD_ANSWER_SUCCESS,
         repos: fixture,
         username,
       };
 
-      expect(reposLoaded(fixture, username)).toEqual(expectedResult);
+      expect(answerLoaded(fixture, username)).toEqual(expectedResult);
     });
   });
 
@@ -33,11 +37,11 @@ describe('App Actions', () => {
         msg: 'Something went wrong!',
       };
       const expectedResult = {
-        type: LOAD_REPOS_ERROR,
+        type: LOAD_ANSWER_ERROR,
         error: fixture,
       };
 
-      expect(repoLoadingError(fixture)).toEqual(expectedResult);
+      expect(answerLoadingError(fixture)).toEqual(expectedResult);
     });
   });
 });

@@ -1,4 +1,4 @@
-import { selectHome, makeSelectUsername } from '../selectors';
+import { selectHome, makeSelectQuestion } from '../selectors';
 
 describe('selectHome', () => {
   it('should select the home state', () => {
@@ -13,14 +13,14 @@ describe('selectHome', () => {
 });
 
 describe('makeSelectUsername', () => {
-  const usernameSelector = makeSelectUsername();
+  const usernameSelector = makeSelectQuestion();
   it('should select the username', () => {
-    const username = 'mxstbr';
+    const question = 'php';
     const mockedState = {
       home: {
-        username,
+        question,
       },
     };
-    expect(usernameSelector(mockedState)).toEqual(username);
+    expect(usernameSelector(mockedState)).toEqual(question);
   });
 });

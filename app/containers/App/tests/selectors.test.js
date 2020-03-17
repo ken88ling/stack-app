@@ -3,7 +3,7 @@ import {
   makeSelectCurrentUser,
   makeSelectLoading,
   makeSelectError,
-  makeSelectRepos,
+  makeSelectAnswer,
   makeSelectLocation,
 } from '../selectors';
 
@@ -57,7 +57,7 @@ describe('makeSelectError', () => {
 });
 
 describe('makeSelectRepos', () => {
-  const reposSelector = makeSelectRepos();
+  const reposSelector = makeSelectAnswer();
   it('should select the repos', () => {
     const repositories = [];
     const mockedState = {

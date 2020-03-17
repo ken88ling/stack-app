@@ -19,11 +19,11 @@ export default defineMessages({
   },
   trymeHeader: {
     id: `${scope}.tryme.header`,
-    defaultMessage: 'Try me!',
+    defaultMessage: 'Programming Question!',
   },
   trymeMessage: {
     id: `${scope}.tryme.message`,
-    defaultMessage: 'Show Github repositories by',
+    defaultMessage: 'Search the question',
   },
   trymeAtPrefix: {
     id: `${scope}.tryme.atPrefix`,
