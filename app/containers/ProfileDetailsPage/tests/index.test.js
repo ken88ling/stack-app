@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'react-testing-library';
 import { IntlProvider } from 'react-intl';
 
-import FeaturePage from '../index';
+import ProfileDetails from '../index';
 
 describe('<FeaturePage />', () => {
   it('should render its heading', () => {
@@ -10,7 +10,7 @@ describe('<FeaturePage />', () => {
       container: { firstChild },
     } = render(
       <IntlProvider locale="en">
-        <FeaturePage />
+        <ProfileDetails />
       </IntlProvider>,
     );
 

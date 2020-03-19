@@ -1,30 +1,25 @@
 import React, { useEffect, memo } from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
-import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
-
-import { useInjectReducer } from 'utils/injectReducer';
-import { useInjectSaga } from 'utils/injectSaga';
+import { useInjectReducer } from '../../utils/injectReducer';
+import { useInjectSaga } from '../../utils/injectSaga';
 import {
   makeSelectAnswer,
   makeSelectLoading,
   makeSelectError,
 } from '../App/selectors';
 import AnswerList from '../../components/AnswerList';
-import AtPrefix from './AtPrefix';
 import Form from './Form';
-import CenteredSection from './CenteredSection';
 import Input from './Input';
-import Section from './Section';
-import messages from './messages';
 import { loadAnswers } from '../App/actions';
 import { changeQuestion } from './actions';
 import { makeSelectQuestion } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
+import './home.scss';
 
 const key = 'home';
 
@@ -50,35 +45,27 @@ export function HomePage({
   };
 
   return (
-    <article>
+    <>
       <Helmet>
         <title>Home Page</title>
         <meta name="description" content="homepage" />
       </Helmet>
-      <div>
-        <CenteredSection>
-          <FormattedMessage {...messages.startProjectHeader} />
-        </CenteredSection>
-        <Section>
-          <Form onSubmit={onSubmitForm}>
-            <label htmlFor="question">
-              <FormattedMessage {...messages.trymeMessage} />
-              <AtPrefix>
-                <FormattedMessage {...messages.trymeAtPrefix} />
-              </AtPrefix>
-              <Input
-                id="question"
-                type="text"
-                placeholder="php"
-                value={question}
-                onChange={onChangeQuestion}
-              />
-            </label>
-          </Form>
-          <AnswerList {...answerListProps} />
-        </Section>
+      <div className="home">
+        <Form onSubmit={onSubmitForm}>
+          <div className="home__header">Search Result</div>
+          <div className="home__search">
+            <Input
+              id="question"
+              type="text"
+              placeholder="example type php then press Enter"
+              value={question}
+              onChange={onChangeQuestion}
+            />
+          </div>
+        </Form>
+        <AnswerList {...answerListProps} />
       </div>
-    </article>
+    </>
   );
 }
 
