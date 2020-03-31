@@ -49,6 +49,7 @@
 
     &__answer-count {
       display: flex;
+      flex-direction: column;
       font-size: 14px;
       line-height: 19px;
       color: #0d4ea2;
@@ -56,6 +57,15 @@
       &__title {
         margin-right: 5px;
       }
+
+      &__body {
+        border: 1px solid #a4a4a4;
+
+        &__details{
+          padding: 10px;
+        }
+      }
+
     }
   }
 
@@ -96,3 +106,6 @@ margin-right: 5px;
   }
 }
 
+.isHide {
+  display: none;
+}

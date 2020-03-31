@@ -18,7 +18,7 @@ Object {
   "combinator": false,
   "payload": Object {
     "args": Array [
-      "https://api.github.com/users/mxstbr/repos?type=all&sort=updated",
+      "https://api.stackexchange.com/2.2/search/advanced?accepted=True&order=desc&sort=creation&site=stackoverflow&title=mxstbr&&filter=!b1MME4lS1P-_z5",
     ],
     "context": null,
     "fn": [Function],
@@ -45,7 +45,7 @@ Object {
   "combinator": false,
   "payload": Object {
     "args": Array [
-      "https://api.github.com/users/mxstbr/repos?type=all&sort=updated",
+      "https://api.stackexchange.com/2.2/search/advanced?accepted=True&order=desc&sort=creation&site=stackoverflow&title=mxstbr&&filter=!b1MME4lS1P-_z5",
     ],
     "context": null,
     "fn": [Function],

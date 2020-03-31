@@ -1,22 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './AnswerItem.scss';
+import cx from 'classnames';
 
 function AnswerItem({
-  item: {
-    view_count,
-    title,
-    tags,
-    score,
-    answer_count,
-    creation_date,
-    link,
-    owner,
-  },
+  item: { view_count, title, tags, score, creation_date, link, owner, body },
 }) {
   const ConvertToDate = unixTimestamp => {
     const date = new Date(unixTimestamp * 1000);
     return `${date.getDate()} - ${date.getMonth() + 1} - ${date.getFullYear()}`;
+  };
+
+  const [hide, setHide] = useState(true);
+
+  const handleClick = () => {
+    console.log('click');
+    setHide(!hide);
   };
 
   return (
@@ -80,8 +79,23 @@ function AnswerItem({
           </div>
         </div>
         <div className="answer__content__answer-count">
-          <div className="answer__content__answer-count__title">Answer</div>
-          <div>{answer_count}</div>
+          {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
+          <div
+            className="answer__content__answer-count__title"
+            onClick={handleClick}
+          >
+            Question Details...
+          </div>
+          <div
+            className={cx('"answer__content__answer-count__body"', {
+              isHide: hide,
+            })}
+          >
+            <div
+              className="answer__content__answer-count__body__details"
+              dangerouslySetInnerHTML={{ __html: body }}
+            />
+          </div>
         </div>
       </div>
       <div className="answer__profile">

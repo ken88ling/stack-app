@@ -8,7 +8,9 @@ describe('homeReducer', () => {
   let state;
   beforeEach(() => {
     state = {
-      username: '',
+      answerId: '',
+      question: '',
+      questionId: '',
     };
   });
 
@@ -18,7 +20,7 @@ describe('homeReducer', () => {
   });
 
   it('should handle the changeUsername action correctly', () => {
-    const fixture = 'mxstbr';
+    const fixture = 'ken';
     const expectedResult = produce(state, draft => {
       draft.username = fixture;
     });

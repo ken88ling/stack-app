@@ -5,7 +5,7 @@ import { changeQuestion } from '../actions';
 describe('Home Actions', () => {
   describe('changeUsername', () => {
     it('should return the correct type and the passed name', () => {
-      const fixture = 'Max';
+      const fixture = 'mxstbr';
       const expectedResult = {
         type: CHANGE_QUESTION,
         username: fixture,

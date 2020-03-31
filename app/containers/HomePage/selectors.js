@@ -13,4 +13,21 @@ const makeSelectQuestion = () =>
     homeState => homeState.question,
   );
 
-export { selectHome, makeSelectQuestion };
+const makeSelectQuestionId = () =>
+  createSelector(
+    selectHome,
+    homeState => homeState.questionId,
+  );
+
+const makeSelectAnswerId = () =>
+  createSelector(
+    selectHome,
+    homeState => homeState.answerId,
+  );
+
+export {
+  selectHome,
+  makeSelectQuestion,
+  makeSelectAnswerId,
+  makeSelectQuestionId,
+};
