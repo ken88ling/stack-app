@@ -27,11 +27,16 @@
   &__content {
     //border: 1px solid blue;
     flex: 6;
-    &__title a {
-      font-weight: 300;
-      font-size: 16px;
-      line-height: 19px;
-      color: #00a9e9;
+
+    &__title{
+      padding-bottom: 5px;
+
+      a{
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 19px;
+        color: #00a9e9;
+      }
     }
 
     &__tags {
@@ -39,6 +44,7 @@
       font-size: 16px;
       line-height: 19px;
       color: #a4a4a4;
+      padding-bottom: 5px;
     }
 
     &__answer-count {
@@ -54,18 +60,24 @@
   }
 
   &__profile {
-    //border: 1px solid blue;
-    flex: 2;
+    flex: 3;
 
     &__create-date {
       font-size: 14px;
       line-height: 19px;
       text-align: right;
+      padding-bottom: 5px;
     }
 
     &__details {
       display: flex;
       align-items: center;
+      justify-content: flex-end;
+      padding-bottom: 5px;
+
+      &__name{
+        padding-right: 10px;
+      }
 
       &__img > img {
         margin-right: 5px;

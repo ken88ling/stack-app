@@ -90,6 +90,9 @@ function AnswerItem({
         </div>
 
         <div className="answer__profile__details">
+          <div className="answer__profile__details__name">
+            {owner.display_name}
+          </div>
           <div className="answer__profile__details__img">
             <img
               src={owner.profile_image}
@@ -97,9 +100,6 @@ function AnswerItem({
               height="32px"
               width="32px"
             />
-          </div>
-          <div className="answer__profile__details__name">
-            {owner.display_name}
           </div>
         </div>
         <div className="answer__view">
