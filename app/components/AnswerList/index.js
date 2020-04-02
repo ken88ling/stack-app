@@ -14,8 +14,13 @@ function AnswerList({ loading, error, answers }) {
   }
 
   if (answers !== false) {
-    console.log('answer != false => ', items);
-    return items.slice(0, 10).map(item => <AnswerItem item={item} />);
+    // console.log('answer != false => ', items);
+    return (
+      items
+        .slice(0, 10)
+        // eslint-disable-next-line react/no-array-index-key
+        .map((item, index) => <AnswerItem item={item} key={index} />)
+    );
   }
   return <></>;
 }

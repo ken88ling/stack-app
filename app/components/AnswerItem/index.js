@@ -14,7 +14,6 @@ function AnswerItem({
   const [hide, setHide] = useState(true);
 
   const handleClick = () => {
-    console.log('click');
     setHide(!hide);
   };
 
