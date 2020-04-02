@@ -25,7 +25,7 @@ const appReducer = (state = initialState, action) =>
         break;
 
       case LOAD_ANSWER_SUCCESS:
-        draft.userData.answers = action.repos;
+        draft.userData.answers = action.questions;
         draft.loading = false;
         draft.currentUser = action.question;
         break;

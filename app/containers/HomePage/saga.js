@@ -26,6 +26,7 @@ export function* getAnswerById() {
 
   try {
     const question = yield call(request, requestURL);
+    console.log('function*getAnswerById -> question', question);
     yield put(answerLoaded(question, questionId));
   } catch (err) {
     yield put(answerLoadingError(err));

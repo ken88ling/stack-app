@@ -18,15 +18,15 @@ export function loadAnswers() {
 /**
  * Dispatched when the answers are loaded by the request saga
  *
- * @param  {array} repos The repository data
+ * @param  {array} questions The repository data
  * @param  {string} question The current question
  *
- * @return {object}      An action object with a type of LOAD_ANSWER_SUCCESS passing the repos
+ * @return {object}      An action object with a type of LOAD_ANSWER_SUCCESS passing the answers
  */
-export function answerLoaded(repos, question) {
+export function answerLoaded(questions, question) {
   return {
     type: LOAD_ANSWER_SUCCESS,
-    repos,
+    questions,
     question,
   };
 }
