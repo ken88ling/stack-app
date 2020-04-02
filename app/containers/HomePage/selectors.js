@@ -15,15 +15,4 @@ const makeSelectQuestionId = () =>
     homeState => homeState.questionId,
   );
 
-const makeSelectAnswerId = () =>
-  createSelector(
-    selectHome,
-    homeState => homeState.answerId,
-  );
-
-export {
-  selectHome,
-  makeSelectQuestion,
-  makeSelectAnswerId,
-  makeSelectQuestionId,
-};
+export { selectHome, makeSelectQuestion, makeSelectQuestionId };

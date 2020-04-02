@@ -21,8 +21,6 @@ import reducer from './reducer';
 import saga from './saga';
 import './home.scss';
 
-const key = 'home';
-
 export function HomePage({
   question,
   loading,
@@ -31,8 +29,8 @@ export function HomePage({
   onSubmitForm,
   onChangeQuestion,
 }) {
-  useInjectReducer({ key, reducer });
-  useInjectSaga({ key, saga });
+  useInjectReducer({ key: 'home', reducer });
+  useInjectSaga({ key: 'home', saga });
 
   useEffect(() => {
     if (question && question.trim().length > 0) onSubmitForm();

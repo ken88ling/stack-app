@@ -6,6 +6,7 @@ import Footer from '../../components/Footer';
 import NavBar from '../../components/NavBar';
 import NotFoundPage from '../NotFoundPage/Loadable';
 import HomePage from '../HomePage/Loadable';
+import DetailsPage from '../DetailsPage/Loadable';
 
 import GlobalStyle from '../../global-styles';
 
@@ -22,6 +23,7 @@ export default function App() {
       <NavBar />
       <Switch>
         <Route exact path="/" component={HomePage} />
+        <Route path="/details" component={DetailsPage} />
         <Route path="" component={NotFoundPage} />
       </Switch>
       <Footer />
