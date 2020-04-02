@@ -5,7 +5,6 @@ import { Switch, Route } from 'react-router-dom';
 import Footer from '../../components/Footer';
 import NavBar from '../../components/NavBar';
 import NotFoundPage from '../NotFoundPage/Loadable';
-import ProfileDetailsPage from '../ProfileDetailsPage/Loadable';
 import HomePage from '../HomePage/Loadable';
 
 import GlobalStyle from '../../global-styles';
@@ -23,7 +22,6 @@ export default function App() {
       <NavBar />
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route path="/profile-details" component={ProfileDetailsPage} />
         <Route path="" component={NotFoundPage} />
       </Switch>
       <Footer />
