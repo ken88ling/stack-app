@@ -14,7 +14,6 @@ function AnswerList({ loading, error, answers }) {
   }
 
   if (answers !== false) {
-    // console.log('answer != false => ', items);
     return (
       items
         .slice(0, 10)

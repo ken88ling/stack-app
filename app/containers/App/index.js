@@ -23,7 +23,7 @@ export default function App() {
       <NavBar />
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route path="/details" component={DetailsPage} />
+        <Route exact path="/details/:id" component={DetailsPage} />
         <Route path="" component={NotFoundPage} />
       </Switch>
       <Footer />
